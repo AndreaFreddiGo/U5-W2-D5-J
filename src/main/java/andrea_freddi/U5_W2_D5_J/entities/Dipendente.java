@@ -33,9 +33,10 @@ public class Dipendente {
     @Column(name = "immagine_profilo")
     private String immagineProfilo;
 
-    public Dipendente(String cognome, String email, String nome, String username) {
+    public Dipendente(String cognome, String email, String immagineProfilo, String nome, String username) {
         this.cognome = cognome;
         this.email = email;
+        this.immagineProfilo = immagineProfilo;
         this.nome = nome;
         this.username = username;
     }
