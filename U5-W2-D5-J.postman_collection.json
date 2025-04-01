@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "e54c4fe3-1f43-4ca7-97d2-ecc585011c0c",
+		"name": "U5-W2-D5-J",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43468801"
+	},
+	"item": [
+		{
+			"name": "Get viaggi",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}/viaggi",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"viaggi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new viaggio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"destinazione\": \"{{$randomCountry}}\",\r\n    \"data\": \"2025-04-01\",\r\n    \"stato\": \"IN_PROGRAMMA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_URL}}/viaggi",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"viaggi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get single viaggio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}/viaggi/13a9939d-060a-48be-bab1-136d8ccbeb4b",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"viaggi",
+						"13a9939d-060a-48be-bab1-136d8ccbeb4b"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update viaggio",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"destinazione\": \"{{$randomCountry}}\",\r\n    \"data\": \"2025-04-01\",\r\n    \"stato\": \"IN_PROGRAMMA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_URL}}/viaggi/13a9939d-060a-48be-bab1-136d8ccbeb4b",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"viaggi",
+						"13a9939d-060a-48be-bab1-136d8ccbeb4b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete viaggio",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}/viaggi/13a9939d-060a-48be-bab1-136d8ccbeb4b",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"viaggi",
+						"13a9939d-060a-48be-bab1-136d8ccbeb4b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get dipendenti",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}/dipendenti",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"dipendenti"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new dipendente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": {{$randomUserName}},\r\n    \"nome\": {{$randomFirstName}},\r\n    \"cognome\": {{$randomLastName}},\r\n    \"email\": {{$randomEmail}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_URL}}/dipendenti",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"dipendenti"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get single dipendente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}/dipendenti/021caebd-20b9-40d4-9a69-fb328a5b6586",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"dipendenti",
+						"021caebd-20b9-40d4-9a69-fb328a5b6586"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update dipendente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"{{$randomUserName}}\",\r\n    \"nome\": \"{{$randomFirstName}}\",\r\n    \"cognome\": \"{{$randomLastName}}\",\r\n    \"email\": \"{{$randomEmail}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_URL}}/dipendenti/05825a35-e9b0-42b8-b0f1-8fef2f555240",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"dipendenti",
+						"05825a35-e9b0-42b8-b0f1-8fef2f555240"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete dipendente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}/dipendenti/05825a35-e9b0-42b8-b0f1-8fef2f555240",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"dipendenti",
+						"05825a35-e9b0-42b8-b0f1-8fef2f555240"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload avatar dipendente",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "immagineProfilo",
+							"type": "file",
+							"src": "/C:/Users/andre/Desktop/EPICODE/JAVA/U5-W2-D5-J/avatar.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_URL}}/dipendenti/021caebd-20b9-40d4-9a69-fb328a5b6586/immagineProfilo",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"dipendenti",
+						"021caebd-20b9-40d4-9a69-fb328a5b6586",
+						"immagineProfilo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get prenotazioni",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}/prenotazioni",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"prenotazioni"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new prenotazione",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}/prenotazioni",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"prenotazioni"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get single prenotazione",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}/prenotazioni",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"prenotazioni"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update prenotazione",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}/prenotazioni/01d7ded7-ac25-496e-ad45-74ac9506e38f",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"prenotazioni",
+						"01d7ded7-ac25-496e-ad45-74ac9506e38f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete prenotazione",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}/prenotazioni/01d7ded7-ac25-496e-ad45-74ac9506e38f",
+					"host": [
+						"{{base_URL}}"
+					],
+					"path": [
+						"prenotazioni",
+						"01d7ded7-ac25-496e-ad45-74ac9506e38f"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_URL",
+			"value": "http://localhost:3001",
+			"type": "default"
+		}
+	]
+}

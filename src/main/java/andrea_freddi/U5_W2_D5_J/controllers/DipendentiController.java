@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -75,5 +76,11 @@ public class DipendentiController {
     @ResponseStatus(HttpStatus.NO_CONTENT) // <-- 204
     public void findByIdAndDelete(@PathVariable UUID id) {
         this.dipendentiService.findByIdAndDelete(id);
+    }
+
+    // 6. PATCH http://localhost:3001/dipendenti/{id}/immagineProfilo (+ req.body)
+    @PatchMapping("/{id}/immagineProfilo")
+    public void updateImmagineProfilo(@PathVariable UUID id, @RequestParam("immagineProfilo") MultipartFile file) {
+        this.dipendentiService.uploadImmagineProfilo(id, file);
     }
 }

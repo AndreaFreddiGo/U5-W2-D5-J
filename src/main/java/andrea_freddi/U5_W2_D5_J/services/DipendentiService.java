@@ -1,20 +1,28 @@
 package andrea_freddi.U5_W2_D5_J.services;
 
 import andrea_freddi.U5_W2_D5_J.entities.Dipendente;
+import andrea_freddi.U5_W2_D5_J.exceptions.BadRequestException;
 import andrea_freddi.U5_W2_D5_J.exceptions.NotFoundException;
 import andrea_freddi.U5_W2_D5_J.payloads.DipendentePayload;
 import andrea_freddi.U5_W2_D5_J.repositories.DipendentiRepository;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.UUID;
 
 @Service
 public class DipendentiService {
+    // Inietto il Cloudinary per caricare le immagini
+    @Autowired
+    Cloudinary cloudinaryUploader;
     @Autowired
     private DipendentiRepository dipendentiRepository;
 
@@ -70,5 +78,22 @@ public class DipendentiService {
         return this.dipendentiRepository.save(trovato); // Salvo il dipendente aggiornato
     }
 
+    // Creo un metodo per caricare l'immagine profilo per il dipendente
+    public Dipendente uploadImmagineProfilo(UUID id, MultipartFile file) {
+        // Cerco il dipendente tramite l'id
+        Dipendente dipendenteTrovato = this.findById(id);
+        // Chiamo l'uploader di Cloudinary per caricare l'immagine e mi restituirà l'url dell'immagine
+        // che io potrò salvare nel dipendente
+        String url = null;
+        try {
+            url = (String) cloudinaryUploader.uploader().upload(file.getBytes(), ObjectUtils.emptyMap()).get("url");
+        } catch (IOException e) {
+            throw new BadRequestException("Ci sono stati errori nel caricamento dell'immagine profilo!");
+        }
+        // Se l'upload va a buon fine, salvo l'url dell'immagine nel dipendente
+        dipendenteTrovato.setImmagineProfilo(url);
+        // Salvo il dipendente aggiornato
+        return this.dipendentiRepository.save(dipendenteTrovato);
+    }
 }
 

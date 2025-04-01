@@ -3,6 +3,7 @@ package andrea_freddi.U5_W2_D5_J.services;
 import andrea_freddi.U5_W2_D5_J.entities.Dipendente;
 import andrea_freddi.U5_W2_D5_J.entities.Prenotazione;
 import andrea_freddi.U5_W2_D5_J.entities.Viaggio;
+import andrea_freddi.U5_W2_D5_J.exceptions.BadRequestException;
 import andrea_freddi.U5_W2_D5_J.exceptions.NotFoundException;
 import andrea_freddi.U5_W2_D5_J.payloads.PrenotazionePayload;
 import andrea_freddi.U5_W2_D5_J.repositories.PrenotazioniRepository;
@@ -34,9 +35,9 @@ public class PrenotazioniService {
             throw new NotFoundException("Viaggio o dipendente non trovato");
         }
         // Controllo se il dipendente ha già una prenotazione per la stessa data
-        prenotazioniRepository.findByDipendenteAndDataViaggio(body.dipendenteId(), viaggioTrovato.getData())
+        prenotazioniRepository.findByDipendenteAndViaggioData(dipendenteTrovato, viaggioTrovato.getData())
                 .ifPresent(p -> {
-                    throw new IllegalArgumentException("Il dipendente ha già una prenotazione per questa data");
+                    throw new BadRequestException("Il dipendente ha già una prenotazione per questa data");
                 });
         Prenotazione nuovaPrenotazione = new Prenotazione(LocalDate.now(), dipendenteTrovato,
                 body.note() == null || body.note().isEmpty() ? "Nessuna nota o preferenza richiesta" : body.note()
@@ -59,14 +60,29 @@ public class PrenotazioniService {
 
     // Creo un metodo per eliminare una prenotazione tramite id
     public void findByIdAndDelete(UUID id) {
-        Prenotazione trovata = this.findById(id); // Trovo la prenotazione tramite id
-        this.prenotazioniRepository.delete(trovata); // La elimino
+        Prenotazione prenotazioneTrovata = this.findById(id); // Trovo la prenotazione tramite id
+        this.prenotazioniRepository.delete(prenotazioneTrovata); // La elimino
     }
 
     // Creo un metodo per aggiornare una prenotazione tramite id
     public Prenotazione findByIdAndUpdate(UUID id, PrenotazionePayload body) {
-        Prenotazione trovata = this.findById(id); // Trovo la prenotazione tramite id
-        trovata.setNote(body.note()); // Aggiorno le note
-        return this.prenotazioniRepository.save(trovata); // La salvo
+        Prenotazione prenotazioneTrovata = this.findById(id); // Trovo la prenotazione tramite id
+        // Controllo se il viaggio o il dipendente per cui è stata richiesta la prenotazione esistono
+        Viaggio viaggioTrovato = viaggiService.findById(body.viaggioId());
+        Dipendente dipendenteTrovato = dipendentiService.findById(body.dipendenteId());
+        if (viaggioTrovato == null || dipendenteTrovato == null) {
+            throw new NotFoundException("Viaggio o dipendente non trovato");
+        }
+        // Controllo se il dipendente ha già una prenotazione per la stessa data
+        prenotazioniRepository.findByDipendenteAndViaggioData(dipendenteTrovato, viaggioTrovato.getData())
+                .ifPresent(p -> {
+                    throw new BadRequestException("Il dipendente ha già una prenotazione per questa data");
+                });
+        // Se non ci sono problemi aggiorno la prenotazione
+        prenotazioneTrovata.setDataRichiesta(LocalDate.now()); // Aggiorno la data di prenotazione
+        prenotazioneTrovata.setNote(body.note()); // Aggiorno le note
+        prenotazioneTrovata.setViaggio(viaggioTrovato); // Aggiorno il viaggio
+        prenotazioneTrovata.setDipendente(dipendenteTrovato); // Aggiorno il dipendente
+        return this.prenotazioniRepository.save(prenotazioneTrovata); // La salvo
     }
 }
