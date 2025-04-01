@@ -76,6 +76,13 @@ public class ViaggiController {
     public void findByIdAndDelete(@PathVariable UUID id) {
         this.viaggiService.findByIdAndDelete(id);
     }
+
+    // 6. PATCH http://localhost:3001/viaggi/{id}
+    @PatchMapping("/{id}")
+    public void findByIdAndUpdateStatus(@PathVariable UUID id) {
+        this.viaggiService.updateStato(id);
+    }
+
 }
 
 

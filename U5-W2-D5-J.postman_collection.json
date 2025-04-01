@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "e54c4fe3-1f43-4ca7-97d2-ecc585011c0c",
 		"name": "U5-W2-D5-J",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "43468801"
 	},
 	"item": [
@@ -11,15 +11,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{base_URL}}/viaggi",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"viaggi"
-					]
-				}
+				"url": "{{base_URL}}/viaggi"
 			},
 			"response": []
 		},
@@ -37,15 +29,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{base_URL}}/viaggi",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"viaggi"
-					]
-				}
+				"url": "{{base_URL}}/viaggi"
 			},
 			"response": []
 		},
@@ -88,16 +72,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{base_URL}}/viaggi/13a9939d-060a-48be-bab1-136d8ccbeb4b",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"viaggi",
-						"13a9939d-060a-48be-bab1-136d8ccbeb4b"
-					]
-				}
+				"url": "{{base_URL}}/viaggi/13a9939d-060a-48be-bab1-136d8ccbeb4b"
 			},
 			"response": []
 		},
@@ -106,16 +81,16 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": {
-					"raw": "{{base_URL}}/viaggi/13a9939d-060a-48be-bab1-136d8ccbeb4b",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"viaggi",
-						"13a9939d-060a-48be-bab1-136d8ccbeb4b"
-					]
-				}
+				"url": "{{base_URL}}/viaggi/13a9939d-060a-48be-bab1-136d8ccbeb4b"
+			},
+			"response": []
+		},
+		{
+			"name": "Update stato viaggio",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": "{{base_URL}}/viaggi/ab525468-f398-4618-9546-26492a8a0aca"
 			},
 			"response": []
 		},
@@ -124,15 +99,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{base_URL}}/dipendenti",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"dipendenti"
-					]
-				}
+				"url": "{{base_URL}}/dipendenti"
 			},
 			"response": []
 		},
@@ -150,15 +117,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{base_URL}}/dipendenti",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"dipendenti"
-					]
-				}
+				"url": "{{base_URL}}/dipendenti"
 			},
 			"response": []
 		},
@@ -167,16 +126,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{base_URL}}/dipendenti/021caebd-20b9-40d4-9a69-fb328a5b6586",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"dipendenti",
-						"021caebd-20b9-40d4-9a69-fb328a5b6586"
-					]
-				}
+				"url": "{{base_URL}}/dipendenti/021caebd-20b9-40d4-9a69-fb328a5b6586"
 			},
 			"response": []
 		},
@@ -194,16 +144,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{base_URL}}/dipendenti/05825a35-e9b0-42b8-b0f1-8fef2f555240",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"dipendenti",
-						"05825a35-e9b0-42b8-b0f1-8fef2f555240"
-					]
-				}
+				"url": "{{base_URL}}/dipendenti/05825a35-e9b0-42b8-b0f1-8fef2f555240"
 			},
 			"response": []
 		},
@@ -212,16 +153,7 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": {
-					"raw": "{{base_URL}}/dipendenti/05825a35-e9b0-42b8-b0f1-8fef2f555240",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"dipendenti",
-						"05825a35-e9b0-42b8-b0f1-8fef2f555240"
-					]
-				}
+				"url": "{{base_URL}}/dipendenti/05825a35-e9b0-42b8-b0f1-8fef2f555240"
 			},
 			"response": []
 		},
@@ -240,17 +172,7 @@
 						}
 					]
 				},
-				"url": {
-					"raw": "{{base_URL}}/dipendenti/021caebd-20b9-40d4-9a69-fb328a5b6586/immagineProfilo",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"dipendenti",
-						"021caebd-20b9-40d4-9a69-fb328a5b6586",
-						"immagineProfilo"
-					]
-				}
+				"url": "{{base_URL}}/dipendenti/021caebd-20b9-40d4-9a69-fb328a5b6586/immagineProfilo"
 			},
 			"response": []
 		},
@@ -259,15 +181,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{base_URL}}/prenotazioni",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"prenotazioni"
-					]
-				}
+				"url": "{{base_URL}}/prenotazioni"
 			},
 			"response": []
 		},
@@ -276,15 +190,7 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "{{base_URL}}/prenotazioni",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"prenotazioni"
-					]
-				}
+				"url": "{{base_URL}}/prenotazioni"
 			},
 			"response": []
 		},
@@ -293,15 +199,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{base_URL}}/prenotazioni",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"prenotazioni"
-					]
-				}
+				"url": "{{base_URL}}/prenotazioni"
 			},
 			"response": []
 		},
@@ -310,16 +208,7 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
-				"url": {
-					"raw": "{{base_URL}}/prenotazioni/01d7ded7-ac25-496e-ad45-74ac9506e38f",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"prenotazioni",
-						"01d7ded7-ac25-496e-ad45-74ac9506e38f"
-					]
-				}
+				"url": "{{base_URL}}/prenotazioni/01d7ded7-ac25-496e-ad45-74ac9506e38f"
 			},
 			"response": []
 		},
@@ -328,16 +217,7 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": {
-					"raw": "{{base_URL}}/prenotazioni/01d7ded7-ac25-496e-ad45-74ac9506e38f",
-					"host": [
-						"{{base_URL}}"
-					],
-					"path": [
-						"prenotazioni",
-						"01d7ded7-ac25-496e-ad45-74ac9506e38f"
-					]
-				}
+				"url": "{{base_URL}}/prenotazioni/01d7ded7-ac25-496e-ad45-74ac9506e38f"
 			},
 			"response": []
 		}

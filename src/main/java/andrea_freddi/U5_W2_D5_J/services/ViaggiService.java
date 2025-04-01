@@ -98,4 +98,17 @@ public class ViaggiService {
         trovato.setStato(statoEnum);
         return this.viaggiRepository.save(trovato); // Salvo il viaggio aggiornato
     }
+
+    // Creo un metodo per aggiornare lo stato del viaggio se la data dello stesso è ormai passata
+    // Non mi serve passare un parametro diverso perché impone di default stato "COMPLETATO" nel
+    // caso in cui dovesse verificare che la data è passata
+    public void updateStato(UUID id) {
+        Viaggio trovato = this.findById(id); // Trovo il viaggio tramite id
+        Stato nuovoStato = Stato.valueOf("COMPLETATO");
+        if (trovato.getData().isAfter(java.time.LocalDate.now())) {
+            throw new BadRequestException("Non puoi aggiornare lo stato di un viaggio che non è ancora partito");
+        }
+        trovato.setStato(nuovoStato);
+        this.viaggiRepository.save(trovato);
+    }
 }
